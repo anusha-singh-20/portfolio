@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+import { provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
+import { LottieComponent } from 'ngx-lottie';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,9 +16,14 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LottieComponent
   ],
-  providers: [],
+  providers: [
+    provideLottieOptions({
+      player: () => player,
+    }),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
